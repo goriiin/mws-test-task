@@ -26,13 +26,13 @@ echo "==> README.md updated."
 git config --global user.name 'github-actions[bot]'
 git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-if [[ `git status --porcelain` ]]; then
+if [[ `git status --porcelain README.md` ]]; then
     echo "==> Committing and pushing changes..."
     git add README.md
     git commit -m "ci: обновить бейдж покрытия до ${COVERAGE}%"
     git push
 else
-    echo "==> No changes to commit."
+    echo "==> No changes to commit in README.md."
 fi
 
 echo "==> Badge update complete."
